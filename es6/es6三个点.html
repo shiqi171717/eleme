@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // es6中引入扩展运算符（...），它用于把一个数组转化为用逗号分隔的参数序列(通俗的说就是把[]去掉了)，它常用在不定参数个数时的函数调用 ，数组合并等情形。因为typeScript是es6的超集，所以typeScript也支持扩展运算符。  
+
+// 1,可变参数个数的函数调用 
+// function push(array, ...items) {  
+//   array.push(...items);  
+// }  
+// function add(...vals){
+//   let sum=0;
+//   for(let i=0;i<vals.length;i++){
+//     sum+=vals[i];
+//   }
+//   return sum;
+// }
+
+// let arr = [1,2,3,4,5,6];
+// let sum = add(...arr);
+// console.log(sum);  //21
+
+
+
+// 2,更便捷的数组合并
+// let arr1 = [1,2];
+// let arr2 = [5,6];
+// let newArr = [20];
+// es5 旧写法
+// newArr = newArr.concat(arr1).concat(arr2);//[20,1,2,5,6]
+// console.log(newArr);
+// newArr = [...newArr,...arr1,...arr2];//[20,1,2,5,6]
+// console.log(newArr);
+
+// 3,替代es5的apply方法
+// es5写法
+// function f(x,y,z) {
+// // ...
+// }
+// var args = [0,1,2];
+// f.apply(null,args);
+// // // es6写法
+// function f(x,y,z){
+//     // ...
+// }
+// var args = [0,1,2];
+// f(...args);
+
+//4,求最大值Math.max()
+//es5写法
+// let a = Math.max.apply(this,[14,3,66]);
+// console.log(a);
+// es6写法
+// let b = Math.min(...[14,3,66]);
+// console.log(b);
+// // 等同于
+// let c = Math.min(14,3,66);
+
+// 5,通过push函数,将一个数组添加到另一个数组的尾部
+// es5 的写法
+// var arr1 = [0,1,2];
+// var arr2 = [4,5,6];
+// Array.prototype.push.apply(arr1,arr2);
+// console.log(arr1);
+
+// // es6的写法
+// var arr1 = [1,2,3];
+// var arr2 = [4,5,6];
+// arr1.push(...arr2);
+// console.log(arr1);
+
+
+
+// 6,与解构赋值结合 生成新数组
+// es5
+// a = list[0],rest = list.slice(1);
+// es6
+// [a,...rest] = list;
+// 下面是另外一些例子
+// const [first,...rest] = [1,2,3,4,5];
+// console.log(first);//1
+// console.log(rest);//[2,3,4,5]
+// const [first,...rest] = [];
+// console.log(first);//undefined
+// console.log(rest);//[]
+// const [first,...rest] = ["foo"];
+// console.log(first);//foo
+// console.log(rest);//[]
+
+// 7,将字符串转为真正的的数组
+// let one = [..."hello"];
+// console.log(one);//["h", "e", "l", "l", "o"]
+
+// 8,将实现了lterator 接口的对象转为数组
+var nodeList = document.querySelectorAll("div");
+var array = [...nodeList];
+console.log(array);//[]
+// querySelectorAll 通过选择器获取页面中所有满足该选择器的元素(获取到的是一个数组, 数组中包含所有的页面元素)
+ 
+
+</script>
+</html>

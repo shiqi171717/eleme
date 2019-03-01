@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>1-解构赋值</title>
+  </head>
+  <body>
+    <script>
+      /*  
+    补充一点let:不允许重复声明
+    */
+      let i = 5;
+      /* var i = 7; */
+      /*  let i = 7; */
+      console.log(i);
+      let cute = function() {
+        return "qaq";
+      };
+      /* let cute  = function(){
+         return "quq";
+      } */
+      console.log(cute());
+      /* 
+      使用const来声明一个值不会被改变的变量，也可以称之为常量。
+      当值为基本数据类型时,这里的值,指的是值本身.
+      当值为引用数据类型时,则指的是保存的地址.
+       */
+      const con = {
+        a: 20,
+        b: 30
+      };
+      con.a = 30;
+
+
+      /* 
+     补充:函数默认值
+     以前的方法有点不得劲,因为传入的值有可能是false,0,"",undefined,null,这五种之一,传入了也取不到.
+      */
+      function ex(name, age = "30") {
+        let n = name || "林浩";
+        let a = age || "30";
+        console.log(n + "的年龄是" + a);
+      }
+      ex();
+
+      /* 
+     解构赋值:按照一定模式,从 数组 和对象中提取值,对变量进行赋值
+     简化赋值过程
+     等号右边必须是可以遍历的结构,否则就会报错
+     (事实上，只要某种数据结构具有 Iterator 接口，都可以采用数组形式的解构赋值。生成器函数也可以)
+      */
+      /* let [a,b,c] = [1,2,3];
+    console.log(a,b,c); */
+
+      /*  let [a,b] = [2];
+    console.log(a,b); */
+
+      /* let [a, ,c] =[1,2,3];
+    console.log(a,c); */
+
+      //解构赋值允许赋默认值
+      /*  let [a=3,b]=[5];
+     console.log(a,b); */
+
+      /* let c;
+    let [a=2] = [c];
+    console.log(a,c); */
+
+      //对象
+      /*  let {a,b} = {a:"111",b:"222"};
+    console.log(a,b); */
+
+      /*  let {a:b} = {a:111};
+    console.log(b); */
+
+      /*    let { a, b = 5 } = { a: 1 };
+      console.log(a, b); */
+
+      //字符串
+      /*  let [a,b,c,d,e] = "hello";
+      console.log(a,b,c,d,e);  */
+      
+      //es6互换值
+      /* [a,b] = [b,a]; */
+    </script>
+  </body>
+</html>

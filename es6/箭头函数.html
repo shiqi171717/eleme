@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>箭头函数</title>
+</head>
+<body>
+    
+</body>
+<script type="text/JavaScript">
+
+// 箭头函数的 this 永远指向其上下文的  this ，任何方法都改变不了其指向，如 call() ,  bind() ,  apply() 
+// 普通函数的this指向调用它的那个对象
+
+// 箭头函数通过 call()  或   apply() 方法调用一个函数时,只传入了一个参数，对 this 并没有影响
+
+
+    // function make () {
+    //     return ()=>{
+    //         console.log(this);
+    //     }
+    // }
+    // var testFunc = make.call({ name:'foo' });
+    // testFunc(); 
+    // testFunc.call({ name:'bar' });
+
+    //箭头函数
+    // 箭头函数相当于匿名函数，并且简化了函数定义。箭头函数有两种格式，一种只包含一个表达式，连{ ... }和return都省略掉了。还有一种可以包含多条语句，这时候就不能省略{ ... }和return.
+    // 注: 箭头函数是匿名函数，不能作为构造函数，不能使用new
+    // 
+    // let fun1 = () => {
+    //     console.log('lalalala');
+    // }
+    // fun1();
+
+    // // 普通函数
+    // function fun() {
+    //     console.log('lalla');
+    // }
+    // fun();
+
+    // 普通函数
+    // function on(a){
+    //     console.log(arguments); //arguments(数组长度)[1, 2, 3, 4, "哈哈哈",.....]
+    //     // console.log(rest);
+    // }
+    // on(1, 2, 3, 4, "哈哈哈");
+
+    // 箭头函数
+    // let On = (b) => {
+    //     console.log(arguments);
+    // }
+    // On("嘟嘟", "滴滴", "哒哒"); //报错, 会显示arguments是 "undefined"
+
+    // let On = (...b) => {
+    //     console.log(b);
+    // }
+    // On("嘟嘟", "滴滴", "哒哒"); //["嘟嘟", "滴滴", "哒哒"]
+    
+    // 数组去重
+    // const set = new Set([1, 2, 3, 4, 4]);
+    // [...set]
+    // console.log([...set]);
+
+
+    // 箭头函数不绑定this，会捕获其所在的上下文的this值，作为自己的this值
+    // var a = "哈哈";
+    // var obj = { 
+    //     a: 10,
+    //     b: () => {
+    //         console.log(this.a); // undefined(因为箭头函数并不绑定this, 只会捕获其所在上下文的this值,进而作为自己的this值)
+    //         console.log(this); // Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+    //     },
+    //     c: function() {
+    //         console.log(this.a); // 10
+    //         console.log(this); // {a: 10, b: ƒ, c: ƒ}
+    //     }
+    // }
+    // obj.b(); //window
+    // obj.c(); //10; {a: 10, b: ƒ, c: ƒ}
+
+    //普通函数
+    var obj = {
+        a: 10,
+        b: function(){
+            console.log(this.a); //10
+        },
+        c: function() {
+            return ()=>{
+                console.log(this.a); //10
+            }
+        }
+    }
+    obj.b(); 
+    obj.c();
+
+
+</script>
+</html>

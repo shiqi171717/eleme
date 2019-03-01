@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>4-set</title>
+  </head>
+  <body></body>
+  <script>
+    /* 
+    Set结构:  构造函数,和数组类似
+     */
+    var set = new Set([1, 1, 1, 2, 3, 4, 4, 9, NaN, NaN]);
+    console.log(set);
+    //转换为数组
+    var arr = [...set];
+
+    console.log(arr);
+    /* 
+    ES6展开运算符 ...
+     *//*  */
+    const arr1 = [1, 2, 3];
+    const arr2 = [...arr1, 10, 20, 30];
+
+    const obj1 = {
+      a: 1,
+      b: 2,
+      c: 3
+    };
+    const obj2 = {
+      ...obj1,
+      d: 4,
+      e: 5,
+      f: 6
+    };
+    /* 
+    遍历Set
+     */
+    for (let i of set) {
+        console.log(i);
+    }
+   /*  set.add(8);
+    console.log(set); */
+
+   /*  set.delete(8);
+    console.log(set); */
+
+    /* console.log(set.has(1));
+
+    set.clear();
+    console.log(set); */
+    
+   /*  for (let item of set.keys() ) {
+        console.log(item);
+    } */
+
+    /* for (let item of set.values() ) {
+        console.log(item);
+    } */
+
+  /*   for(let [key,item] of set.entries() ){
+        console.log(key+":"+item);
+    } */
+  /*   set.forEach( (item,key)=>console.log(item,key) ); */
+  </script>
+</html>
